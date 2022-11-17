@@ -21,4 +21,11 @@ public class Food : MonoBehaviour
         //Rounding the values
         this.transform.position = new Vector2(Mathf.Round(x), Mathf.Round(y));
     }
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.tag == "Player")
+        {
+            RandomizePosition();
+        }
+    }
 }
