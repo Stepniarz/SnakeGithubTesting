@@ -60,11 +60,30 @@ public class Snake : MonoBehaviour
         snakePartsList.Add(snakePart);
     }
 
+    void GameReset()
+    {
+        for (int i = 1; i < snakePartsList.Count; i++)
+        {
+            Destroy(snakePartsList[i].gameObject);
+        }
+
+        snakePartsList.Clear();
+        snakePartsList.Add(this.transform);
+        this.transform.position = Vector2.zero;
+    }
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.tag == "Food")
         {
             Grow();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other) 
+    {
+        if(other.tag == "Border")
+        {
+            GameReset();
         }
     }
 
