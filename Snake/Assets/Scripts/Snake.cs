@@ -77,6 +77,10 @@ public class Snake : MonoBehaviour
         {
             Grow();
         }
+        else if(other.tag == "SnakePart")
+        {
+            GameReset();
+        }
     }
 
     void OnTriggerExit2D(Collider2D other) 
