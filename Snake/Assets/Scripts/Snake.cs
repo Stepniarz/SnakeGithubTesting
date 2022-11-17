@@ -30,4 +30,12 @@ public class Snake : MonoBehaviour
             moveDirection = Vector2.right;
         }
     }
+
+    void FixedUpdate() 
+    {
+        this.transform.position = new Vector2(
+            Mathf.Round(this.transform.position.x) + moveDirection.x,
+            Mathf.Round(this.transform.position.y) + moveDirection.y
+        );
+    }
 }
